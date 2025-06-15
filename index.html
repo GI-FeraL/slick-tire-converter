@@ -222,9 +222,12 @@ section.appendChild(createElem('button', {
       });
 
       container.appendChild(createElem('div', { class: 'compare', id: 'comparison' }));
-      container.appendChild(createElem('div', {
-        style: "margin-top:20px;font-size:0.9rem;text-align:center;color:rgba(0,0,0,0.6);"
+      const disclaimerBox = createElem('div', { class: 'box' });
+      disclaimerBox.appendChild(createElem('div', {
+        style: "font-size: 0.9rem; text-align: center; color: white;"
       }, t().disclaimer));
+      container.appendChild(disclaimerBox);
+
       document.body.appendChild(container);
       populateTires();
     }
