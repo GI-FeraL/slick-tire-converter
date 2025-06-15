@@ -356,10 +356,6 @@ const sharedInputStyle = {
       onchange: () => convertTire(pos)
     });
 
-    const slickSizes = [...new Set(slickDatabase.map(t =>
-      `${t.width}/${Math.round((t.diameter - t.rim * 25.4) / 2 / t.width * 100)}R${t.rim}`
-    ))];
-
     const popularSizes = [
       '185/65R14', '195/65R15', '205/55R16', '205/60R16',
       '215/45R17', '225/45R17', '235/45R17',
@@ -368,7 +364,7 @@ const sharedInputStyle = {
       '275/30R20', '285/30R20'
     ];
 
-    const allSizes = Array.from(new Set([...slickSizes, ...popularSizes]));
+    const allSizes = [...popularSizes]; // Only curated list
 
     const groups = {};
     allSizes.forEach(size => {
