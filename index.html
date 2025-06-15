@@ -231,30 +231,34 @@ section.appendChild(createElem('button', {
 
 function populateTires() {
   const popularSizes = [
-    '185/65R14', '195/65R15', '205/55R16', '205/60R16',
-    '215/45R17', '225/45R17', '235/45R17',
+    // R13
+    '155/70R13', '165/70R13', '175/70R13',
+    // R14
+    '175/65R14', '185/60R14', '185/65R14', '195/60R14',
+    // R15
+    '185/65R15', '195/60R15', '195/65R15', '205/60R15',
+    // R16
+    '205/55R16', '205/60R16', '215/55R16', '225/55R16',
+    // R17
+    '205/50R17', '215/45R17', '225/45R17', '235/45R17',
+    // R18
     '225/40R18', '235/40R18', '245/40R18', '255/35R18',
+    // R19
     '225/35R19', '235/35R19', '245/35R19', '255/35R19',
-    '275/30R20', '285/30R20'
+    // R20
+    '255/30R20', '265/30R20', '275/30R20'
   ];
 
   ['front', 'rear'].forEach(pos => {
     const sel = document.getElementById(`${pos}Input`);
     sel.innerHTML = '';
 
-    const slickSizes = [...new Set(slickDatabase.map(t =>
-      `${t.width}/${Math.round((t.diameter - t.rim * 25.4) / 2 / t.width * 100)}R${t.rim}`
-    ))];
-
-    const allSizes = Array.from(new Set([...slickSizes, ...popularSizes]));
-
-    // Group and sort sizes
     const groups = {};
-    allSizes.forEach(size => {
-      const match = size.match(/(\d{3})\/\d{2}R(\d{2})/);
+    popularSizes.forEach(size => {
+      const match = size.match(/(\d{3})\/(\d{2})R(\d{2})/);
       if (!match) return;
       const width = parseInt(match[1]);
-      const rim = parseInt(match[2]);
+      const rim = parseInt(match[3]);
       if (!groups[rim]) groups[rim] = [];
       groups[rim].push({ size, width });
     });
