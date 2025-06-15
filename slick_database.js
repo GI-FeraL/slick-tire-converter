@@ -1,4 +1,4 @@
-const slickSizesDatabase = [
+window.slickSizesDatabase = [
   { brand: 'Hoosier', size: '270/710R19', diameter: 710, width: 270, rim: 19, link: 'https://www.hoosiertire.com/tires/road-race/' },
   { brand: 'Dunlop', size: '270/640R18', diameter: 640, width: 270, rim: 18, link: 'https://www.dunlopmotorsport.com/tires' },
   { brand: 'Pirelli', size: '275/660R18', diameter: 660, width: 275, rim: 18, link: 'https://www.pirelli.com/tyres/en-ww/motorsport/catalogue' },
