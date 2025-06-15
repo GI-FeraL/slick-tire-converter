@@ -399,17 +399,16 @@ setTimeout(() => {
   document.head.appendChild(style);
 });
 
-      const controls = createElem('div', { class: 'box' });
+const controls = createElem('div', { class: 'box' });
 ['car', 'motorcycle'].forEach(mode => {
   controls.appendChild(createElem('button', {
     onclick: () => {
       currentMode = mode;
-      updateTireDropdown("front");
-      updateTireDropdown("rear");
+      buildUI();  // Rebuilds UI and resets everything
     }
   }, t()[mode]));
 });
-      container.appendChild(controls);
+container.appendChild(controls);
 
       ['front', 'rear'].forEach(pos => {
         const section = createElem('div', { class: 'box' });
